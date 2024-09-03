@@ -1,0 +1,118 @@
+<header><h1>StyleSheetList</h1></header><div class="section-content">
+<p>The <code>StyleSheetList</code> interface represents a list of <a href="cssstylesheet"><code>CSSStyleSheet</code></a> objects. An instance of this object can be returned by <a href="document/stylesheets"><code>Document.styleSheets</code></a>.</p> <p>It is an array-like object but can't be iterated over using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a> methods. However it can be iterated over in a standard <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for"><code>for</code></a> loop over its indices, or converted to an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a>.</p> <div class="notecard note" id="sect1"> <p> <strong>Note:</strong> Typically list interfaces like <code>StyleSheetList</code> wrap around <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a> types, so you can use <code>Array</code> methods on them. This is not the case here for <a href="https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156" target="_blank">historical reasons</a>. However, you can convert <code>StyleSheetList</code> to an <code>Array</code> in order to use those methods (see the example below). </p> </div>
+</div>
+<h2 id="instance_properties">Instance properties</h2>
+<div class="section-content"><dl> <dt id="stylesheetlist.length">
+<a href="stylesheetlist/length"><code>StyleSheetList.length</code></a> <span class="badge inline readonly">Read only </span>
+</dt> <dd> <p>Returns the number of <a href="cssstylesheet"><code>CSSStyleSheet</code></a> objects in the collection.</p> </dd> </dl></div>
+<h2 id="instance_methods">Instance methods</h2>
+<div class="section-content"><dl> <dt id="stylesheetlist.item"><a href="stylesheetlist/item"><code>StyleSheetList.item()</code></a></dt> <dd> <p>Returns the <a href="cssstylesheet"><code>CSSStyleSheet</code></a> object at the index passed in, or <code>null</code> if no item exists for that index.</p> </dd> </dl></div>
+<h2 id="examples">Examples</h2>
+
+<h3 id="get_cssstylesheet_objects_with_for_loop">Get CSSStyleSheet objects with for loop</h3>
+<div class="section-content"><div class="code-example">
+<div class="example-header"><span class="language-name">js</span></div>
+<pre data-signature="h7CDttScPmUnVzKvusqoKwFRYzjtRTrScMh1fYHf+Nk=" data-language="js"><span class="token keyword">const</span> styleSheet <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> styleSheets <span class="token operator">=</span> document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> styleSheets<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  styleSheet<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>styleSheets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre>
+</div></div>
+<h3 id="get_all_css_rules_for_the_document_using_array_methods">Get all CSS rules for the document using Array methods</h3>
+<div class="section-content"><div class="code-example">
+<div class="example-header"><span class="language-name">js</span></div>
+<pre data-signature="/TQbnlb7lMOCBxS4Ew0dxRrZ2MBjAOpKaEeRGJE68u8=" data-language="js"><span class="token keyword">const</span> allCSS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">]</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">styleSheet</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>styleSheet<span class="token punctuation">.</span>cssRules<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">rule</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> rule<span class="token punctuation">.</span>cssText<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+        <span class="token string">"Access to stylesheet %s is denied. Ignoring…"</span><span class="token punctuation">,</span>
+        styleSheet<span class="token punctuation">.</span>href<span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre>
+</div></div>
+<h2 id="specifications">Specifications</h2>
+<div class="_table"><table class="standard-table">
+<thead><tr><th scope="col">Specification</th></tr></thead>
+<tbody><tr><td><a href="https://drafts.csswg.org/cssom/#the-stylesheetlist-interface">CSS Object Model (CSSOM) <br><small># the-stylesheetlist-interface</small></a></td></tr></tbody>
+</table></div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="_table"><table>
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th colspan="5">Desktop</th>
+<th colspan="6">Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+<th>WebView Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th><code>StyleSheetList</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">4.4</td>
+</tr>
+<tr>
+<th><code>item</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">4.4</td>
+</tr>
+<tr>
+<th><code>length</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">4.4</td>
+</tr>
+</tbody>
+</table></div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2023 MDN contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/StyleSheetList" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/StyleSheetList</a>
+  </p>
+</div>

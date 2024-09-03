@@ -1,0 +1,298 @@
+<header><h1>flex-basis</h1>
+<details class="baseline-indicator high"><summary><h2>Baseline <span class="not-bold">Widely available</span>
+</h2>
+
+</summary><div class="extra">
+<p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since September 2015.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li>
+<li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li>
+<li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FCSS%2Fflex-basis&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li>
+</ul>
+</div></details></header><div class="section-content">
+<p>The <code>flex-basis</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the initial main size of a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Flex_Item">flex item</a>. It sets the size of the content box unless otherwise set with <a href="box-sizing"><code>box-sizing</code></a>.</p> <div class="notecard note" id="sect1"> <p><strong>Note:</strong> It is recommended to use the <a href="flex"><code>flex</code></a> shorthand instead of separate <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> declarations. We have separated them here as this document is about one of the shorthand components: the <code>flex-basis</code> property.</p> </div>
+</div>
+<section aria-labelledby="try_it"><h2 id="try_it">Try it</h2>
+<div class="section-content">
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/flex-basis.html" title="MDN Web Docs Interactive Example" allow="clipboard-write" loading="lazy"></iframe> <p>In this example, the <a href="flex-grow"><code>flex-grow</code></a> and <a href="flex-shrink"><code>flex-shrink</code></a> properties are both set to <code>1</code> on all three items, indicating that the flex item can grow and shrink from the initial <code>flex-basis</code>.</p> <p>The demo changes the <code>flex-basis</code> value set on the first flex item, causing it to grow or shrink to fill the available space. The other flex items will also change size; they will be at least <code>min-content</code>-sized. For example, when the <code>flex-basis</code> of the first item is set to <code>200px</code>, it will start at <code>200px</code> but then shrink to fit the space available.</p> <p>If <code>flex-basis</code> is set to a value other than <code>auto</code> and there is a <code>width</code> (or <code>height</code> in case of <code>flex-direction: column</code>) set for that same flex item, the <code>flex-basis</code> value takes precedence.</p>
+</div></section><section aria-labelledby="syntax"><h2 id="syntax">Syntax</h2>
+<div class="section-content">
+<div class="code-example">
+<div class="example-header"><span class="language-name">css</span></div>
+<pre data-signature="N2G+LipPw0JP9Uzw1VgOqBBukuaqbYxplmwVQ1eKqoI=" data-language="css"><span class="token comment">/* Specify &lt;'width'&gt; */</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> 10em<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+
+<span class="token comment">/* Intrinsic sizing keywords */</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> max-content<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> min-content<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> fit-content<span class="token punctuation">;</span>
+
+<span class="token comment">/* Automatically size based on the flex item's content */</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> content<span class="token punctuation">;</span>
+
+<span class="token comment">/* Global values */</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> revert<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> revert-layer<span class="token punctuation">;</span>
+<span class="token property">flex-basis</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span>
+</pre>
+</div> <p>The <code>flex-basis</code> property is specified as either the keyword <code>content</code> or a <code>&lt;'width'&gt;</code>.</p>
+</div></section><section aria-labelledby="values"><h3 id="values">Values</h3>
+<div class="section-content"><dl> <dt id="width"><a href="#width"><code>&lt;'width'&gt;</code></a></dt> <dd> <p>Any of the following units:</p> <ul> <li>
+<a href="length"><code>&lt;length&gt;</code></a> sets an absolute value.</li> <li>
+<a href="percentage"><code>&lt;percentage&gt;</code></a> sets a percentage of the width or height of the containing block's content area.</li> <li>
+<code>auto</code> uses the value of the <a href="width"><code>width</code></a> in horizontal writing mode, and the value of the <a href="height"><code>height</code></a> in vertical writing mode; when the corresponding value is also <code>auto</code>, the <code>content</code> value is used instead.</li> <li>
+<a href="max-content"><code>max-content</code></a> sets the intrinsic preferred width.</li> <li>
+<a href="min-content"><code>min-content</code></a> sets the intrinsic minimum width.</li> <li>
+<a href="fit-content"><code>fit-content</code></a> sets the maximum possible size of a containing block's content area, bounded by the <code>min-content</code> and <code>max-content</code> values, and calculated based on the content of the current element.</li> </ul> </dd> <dt id="content"><a href="#content"><code>content</code></a></dt> <dd> <p>Indicates automatic sizing, based on the flex item's content.</p> </dd> </dl></div></section><section aria-labelledby="formal_definition"><h2 id="formal_definition">Formal definition</h2>
+<div class="section-content"><figure class="table-container"><div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>auto</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>flex items, including in-flow pseudo-elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentages</th>
+<td>refer to the flex container's inner main size</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as specified, but with relative lengths converted into absolute lengths</td>
+</tr>
+<tr>
+<th scope="row"><a href="css_animated_properties">Animation type</a></th>
+<td>a <a href="length#interpolation">length</a>, <a href="percentage#interpolation">percentage</a> or calc();</td>
+</tr>
+</tbody></table></div></figure></div></section><section aria-labelledby="formal_syntax"><h2 id="formal_syntax">Formal syntax</h2>
+<div class="section-content"><pre class="notranslate"><span class="token property" id="flex-basis">flex-basis = </span><br>  <span class="token keyword">content</span>    <a href="value_definition_syntax#single_bar">|</a><br>  <a href="width"><span class="token property">&lt;'width'&gt;</span></a>  <br><br><span class="token property" id="&lt;width&gt;">&lt;width&gt; = </span><br>  <span class="token keyword">auto</span>                                      <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token property">&lt;length-percentage [0,∞]&gt;</span>                 <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">min-content</span>                               <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">max-content</span>                               <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token function">fit-content(</span> <span class="token property">&lt;length-percentage [0,∞]&gt;</span> <span class="token function">)</span>  <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token property">&lt;calc-size()&gt;</span>                             <br><br><span class="token property" id="&lt;length-percentage&gt;">&lt;length-percentage&gt; = </span><br>  <a href="length"><span class="token property">&lt;length&gt;</span></a>      <a href="value_definition_syntax#single_bar">|</a><br>  <a href="percentage"><span class="token property">&lt;percentage&gt;</span></a>  <br><br><span class="token property" id="&lt;calc-size()&gt;">&lt;calc-size()&gt; = </span><br>  <span class="token function">calc-size(</span> <span class="token property">&lt;calc-size-basis&gt;</span> , <span class="token property">&lt;calc-sum&gt;</span><a href="value_definition_syntax#question_mark">?</a> <span class="token function">)</span>  <br><br><span class="token property" id="&lt;calc-size-basis&gt;">&lt;calc-size-basis&gt; = </span><br>  <a href="intrinsic-size-keyword" class="page-not-created"><span class="token property">&lt;intrinsic-size-keyword&gt;</span></a>  <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">percentage</span>                <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token property">&lt;calc-size()&gt;</span>             <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">any</span>                       <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token property">&lt;calc-sum&gt;</span>                <br><br><span class="token property" id="&lt;calc-sum&gt;">&lt;calc-sum&gt; = </span><br>  <span class="token property">&lt;calc-product&gt;</span> <a href="value_definition_syntax#brackets">[</a> <a href="value_definition_syntax#brackets">[</a> '+' <a href="value_definition_syntax#single_bar">|</a> '-' <a href="value_definition_syntax#brackets">]</a> <span class="token property">&lt;calc-product&gt;</span> <a href="value_definition_syntax#brackets">]</a><a href="value_definition_syntax#asterisk">*</a>  <br><br><span class="token property" id="&lt;calc-product&gt;">&lt;calc-product&gt; = </span><br>  <span class="token property">&lt;calc-value&gt;</span> <a href="value_definition_syntax#brackets">[</a> <a href="value_definition_syntax#brackets">[</a> '*' <a href="value_definition_syntax#single_bar">|</a> '/' <a href="value_definition_syntax#brackets">]</a> <span class="token property">&lt;calc-value&gt;</span> <a href="value_definition_syntax#brackets">]</a><a href="value_definition_syntax#asterisk">*</a>  <br><br><span class="token property" id="&lt;calc-value&gt;">&lt;calc-value&gt; = </span><br>  <a href="number"><span class="token property">&lt;number&gt;</span></a>        <a href="value_definition_syntax#single_bar">|</a><br>  <a href="dimension"><span class="token property">&lt;dimension&gt;</span></a>     <a href="value_definition_syntax#single_bar">|</a><br>  <a href="percentage"><span class="token property">&lt;percentage&gt;</span></a>    <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token property">&lt;calc-keyword&gt;</span>  <a href="value_definition_syntax#single_bar">|</a><br>  ( <span class="token property">&lt;calc-sum&gt;</span> <span class="token function">)</span>  <br><br><span class="token property" id="&lt;calc-keyword&gt;">&lt;calc-keyword&gt; = </span><br>  <span class="token keyword">e</span>          <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">pi</span>         <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">infinity</span>   <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">-infinity</span>  <a href="value_definition_syntax#single_bar">|</a><br>  <span class="token keyword">NaN</span>        <br><br></pre></div></section><section aria-labelledby="examples"><h2 id="examples">Examples</h2>
+</section><section aria-labelledby="setting_flex_item_initial_sizes"><h3 id="setting_flex_item_initial_sizes">Setting flex item initial sizes</h3>
+<div class="section-content">
+<h4 id="html">HTML</h4> <div class="code-example">
+<div class="example-header"><span class="language-name">html</span></div>
+<pre data-signature="RILzBkhYQR44CixwY6QZuHDh/qPpJHvb9Lcohu4XhPE=" data-language="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>1: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>2: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>3: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>4: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex5<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>5: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex flex6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6: flex-basis test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</pre>
+</div> <h4 id="css">CSS</h4> <div class="code-example">
+<div class="example-header"><span class="language-name">css</span></div>
+<pre data-signature="JAcnP9DhfHUHDWj3IMIw+EJP7fwUffR2EvnfxD+iXNE=" data-language="css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #6ab6d8<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 3px solid #2e86bb<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex::after</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex1</span> <span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex1::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"auto"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex2</span> <span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> max-content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex2::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"max-content"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex3</span> <span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> min-content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex3::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"min-content"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex4</span> <span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> fit-content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex4::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"fit-content"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex5</span> <span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.flex5::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"content"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre>
+</div> <h4 id="results">Results</h4>
+<div class="code-example" id="sect2">
+
+<iframe class="sample-code-frame" title="Setting flex item initial sizes sample" id="frame_setting_flex_item_initial_sizes" height="360" src="https://live.mdnplay.dev/en-US/docs/Web/CSS/flex-basis/runner.html?id=setting_flex_item_initial_sizes" sandbox="allow-same-origin allow-scripts" loading="lazy"></iframe>
+</div>
+</div></section><h2 id="specifications">Specifications</h2>
+<div class="_table"><table class="standard-table">
+<thead><tr><th scope="col">Specification</th></tr></thead>
+<tbody><tr><td><a href="https://drafts.csswg.org/css-flexbox/#flex-basis-property">CSS Flexible Box Layout Module Level 1 <br><small># flex-basis-property</small></a></td></tr></tbody>
+</table></div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="_table"><table>
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th colspan="5">Desktop</th>
+<th colspan="6">Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+<th>WebView Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th><code>flex-basis</code></th>
+<td class="bc-supports-yes">2922</td>
+<td class="bc-supports-yes">1212</td>
+<td class="bc-supports-yes">
+<details><summary>22</summary>Since Firefox 28, multi-line flexbox is supported.</details>49</td>
+<td class="bc-supports-yes">12.115</td>
+<td class="bc-supports-yes">97</td>
+<td class="bc-supports-yes">2925</td>
+<td class="bc-supports-yes">
+<details><summary>22</summary>Since Firefox 28, multi-line flexbox is supported.</details>49</td>
+<td class="bc-supports-yes">12.114</td>
+<td class="bc-supports-yes">97</td>
+<td class="bc-supports-yes">2.01.5</td>
+<td class="bc-supports-yes">4.44.4</td>
+</tr>
+<tr>
+<th><code>auto</code></th>
+<td class="bc-supports-yes">22</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">22</td>
+<td class="bc-supports-yes">12.1</td>
+<td class="bc-supports-yes">97</td>
+<td class="bc-supports-yes">25</td>
+<td class="bc-supports-yes">22</td>
+<td class="bc-supports-yes">12.1</td>
+<td class="bc-supports-yes">97</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">4.4</td>
+</tr>
+<tr>
+<th><code>content</code></th>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">9412–79</td>
+<td class="bc-supports-yes">61</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-yes">15.4</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">61</td>
+<td class="bc-supports-yes">66</td>
+<td class="bc-supports-yes">15.4</td>
+<td class="bc-supports-yes">17.0</td>
+<td class="bc-supports-yes">94</td>
+</tr>
+<tr>
+<th><code>fit-content</code></th>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">9422</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">9422</td>
+<td class="bc-supports-yes">66</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">17.0</td>
+<td class="bc-supports-yes">94</td>
+</tr>
+<tr>
+<th><code>max-content</code></th>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">6622</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">6622</td>
+<td class="bc-supports-yes">66</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">17.0</td>
+<td class="bc-supports-yes">94</td>
+</tr>
+<tr>
+<th><code>min-content</code></th>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">6622</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">94</td>
+<td class="bc-supports-yes">6622</td>
+<td class="bc-supports-yes">66</td>
+<td class="bc-supports-yes">16</td>
+<td class="bc-supports-yes">17.0</td>
+<td class="bc-supports-yes">94</td>
+</tr>
+</tbody>
+</table></div>
+<section aria-labelledby="see_also"><h2 id="see_also">See also</h2>
+<div class="section-content"><ul> <li>
+<a href="flex"><code>flex</code></a> shorthand</li> <li><a href="inline-size"><code>inline-size</code></a></li> <li><a href="css_flexible_box_layout/basic_concepts_of_flexbox">Basic concepts of flexbox</a></li> <li><a href="css_flexible_box_layout/controlling_ratios_of_flex_items_along_the_main_axis">Controlling ratios of flex items along the main axis</a></li> <li>
+<a href="css_flexible_box_layout">CSS flexible box layout</a> module</li> </ul></div></section><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2024 MDN contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis</a>
+  </p>
+</div>

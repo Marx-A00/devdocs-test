@@ -1,0 +1,99 @@
+<header><h1>ServiceWorkerRegistration: pushManager property</h1>
+<details class="baseline-indicator low"><summary><h2>Baseline <span class="not-bold">2023</span>
+</h2>
+<div class="pill">Newly available</div>
+
+</summary><div class="extra">
+<p>Since March 2023, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li>
+<li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li>
+<li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FAPI%2FServiceWorkerRegistration%2FpushManager&amp;level=low" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li>
+</ul>
+</div></details></header><div class="section-content">
+<div class="notecard secure" id="sect1"><p><strong>Secure context:</strong> This feature is available only in <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">secure contexts</a> (HTTPS), in some or all <a href="#browser_compatibility">supporting browsers</a>.</p></div>
+<div class="notecard note" id="sect2"> <p><strong>Note:</strong> This feature is available in <a href="../web_workers_api">Web Workers</a>.</p> </div> <p> The <code>pushManager</code> read-only property of the <a href="../serviceworkerregistration"><code>ServiceWorkerRegistration</code></a> interface returns a reference to the <a href="../pushmanager"><code>PushManager</code></a> interface for managing push subscriptions; this includes support for subscribing, getting an active subscription, and accessing push permission status. </p>
+</div>
+<h2 id="value">Value</h2>
+<div class="section-content"><p>A <a href="../pushmanager"><code>PushManager</code></a> object.</p></div>
+<h2 id="examples">Examples</h2>
+<div class="section-content"><div class="code-example">
+<div class="example-header"><span class="language-name">js</span></div>
+<pre data-signature="PsVaFq47Fcd0nj+tmxuou6jlG28XzVOuHpYeF9WKJXs=" data-language="js"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">onpush</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// From here we can write the data to IndexedDB, send it to any open</span>
+  <span class="token comment">// windows, display a notification, etc.</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+navigator<span class="token punctuation">.</span>serviceWorker
+  <span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">"serviceworker.js"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">serviceWorkerRegistration</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    serviceWorkerRegistration<span class="token punctuation">.</span>pushManager<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span><span class="token parameter">pushSubscription</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>pushSubscription<span class="token punctuation">.</span>subscriptionId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>pushSubscription<span class="token punctuation">.</span>endpoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// The push subscription details needed by the application</span>
+        <span class="token comment">// server are now available, and can be sent to it using,</span>
+        <span class="token comment">// for example, the fetch() API.</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// During development it often helps to log errors to the</span>
+        <span class="token comment">// console. In a production environment it might make sense to</span>
+        <span class="token comment">// also report information about errors back to the</span>
+        <span class="token comment">// application server.</span>
+        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre>
+</div></div>
+<h2 id="specifications">Specifications</h2>
+<div class="_table"><table class="standard-table">
+<thead><tr><th scope="col">Specification</th></tr></thead>
+<tbody><tr><td><a href="https://w3c.github.io/push-api/#dom-serviceworkerregistration-pushmanager">Push API <br><small># dom-serviceworkerregistration-pushmanager</small></a></td></tr></tbody>
+</table></div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="_table"><table>
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th colspan="5">Desktop</th>
+<th colspan="6">Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+<th>WebView Android</th>
+</tr>
+</thead>
+<tbody><tr>
+<th><code>pushManager</code></th>
+<td class="bc-supports-yes">40</td>
+<td class="bc-supports-yes">17</td>
+<td class="bc-supports-yes">44</td>
+<td class="bc-supports-yes">27</td>
+<td class="bc-supports-yes"><details><summary>16</summary>Notifications are supported on macOS Ventura and later.</details></td>
+<td class="bc-supports-yes">40</td>
+<td class="bc-supports-yes">48</td>
+<td class="bc-supports-yes">27</td>
+<td class="bc-supports-yes"><details><summary>16.4</summary>Notifications are supported in web apps saved to the home screen.</details></td>
+<td class="bc-supports-yes">4.0</td>
+<td class="bc-supports-no">No</td>
+</tr></tbody>
+</table></div>
+<h2 id="see_also">See also</h2>
+<div class="section-content"><ul> <li><a href="../push_api">Push API</a></li> </ul></div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2023 MDN contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/pushManager" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/pushManager</a>
+  </p>
+</div>

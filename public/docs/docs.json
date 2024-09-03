@@ -1,0 +1,70 @@
+[
+  {
+    "name": "CSS",
+    "slug": "css",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/css"
+    },
+    "mtime": 1724179506,
+    "db_size": 21407094,
+    "attribution": "&copy; 2005&ndash;2024 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later."
+  },
+  {
+    "name": "Git",
+    "slug": "git",
+    "type": "git",
+    "links": {
+      "home": "https://git-scm.com/",
+      "code": "https://github.com/git/git"
+    },
+    "release": "2.46.0",
+    "mtime": 1724478317,
+    "db_size": 4772686,
+    "attribution": "&copy; 2005&ndash;2024 Linus Torvalds and others<br>\n      Licensed under the GNU General Public License version 2."
+  },
+  {
+    "name": "HTML",
+    "slug": "html",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/html"
+    },
+    "mtime": 1724178303,
+    "db_size": 5644889,
+    "attribution": "&copy; 2005&ndash;2024 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later."
+  },
+  {
+    "name": "HTTP",
+    "slug": "http",
+    "type": "mdn",
+    "mtime": 1668720049,
+    "db_size": 5144311
+  },
+  {
+    "name": "JavaScript",
+    "slug": "javascript",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/javascript"
+    },
+    "mtime": 1724477756,
+    "db_size": 15561276,
+    "attribution": "&copy; 2005&ndash;2024 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later."
+  },
+  {
+    "name": "Web APIs",
+    "slug": "dom",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/api"
+    },
+    "mtime": 1724179743,
+    "db_size": 74631996,
+    "attribution": "&copy; 2005&ndash;2024 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later."
+  }
+]

@@ -1,0 +1,55 @@
+<header><h1>RTCOutboundRtpStreamStats: qualityLimitationReason property</h1></header><div class="section-content">
+<p> The <code>qualityLimitationReason</code> property of the <a href="../rtcoutboundrtpstreamstats"><code>RTCOutboundRtpStreamStats</code></a> dictionary is a string indicating the reason why the media quality in the stream is currently being reduced by the codec during encoding, or <code>none</code> if no quality reduction is being performed. </p> <p> This quality reduction may include changes such as reduced frame rate or resolution, or an increase in compression factor. </p> <p> The amount of time the encoded media has had its quality reduced in each of the potential ways that can be done can be found in <a class="page-not-created"><code>qualityLimitationDurations</code></a>. </p>
+</div>
+<h2 id="value">Value</h2>
+<div class="section-content"><p> A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"><code>Map</code></a> whose keys are strings whose values are <code>none</code>, <code>cpu</code>, <code>bandwidth</code>, or <code>other</code>, and whose values are the duration of the media, in seconds, whose quality was reduced for that reason. </p></div>
+<h2 id="examples">Examples</h2>
+
+<h2 id="specifications">Specifications</h2>
+<div class="_table"><table class="standard-table">
+<thead><tr><th scope="col">Specification</th></tr></thead>
+<tbody><tr><td><a href="https://w3c.github.io/webrtc-stats/#dom-rtcoutboundrtpstreamstats-qualitylimitationreason">Identifiers for WebRTC's Statistics API <br><small># dom-rtcoutboundrtpstreamstats-qualitylimitationreason</small></a></td></tr></tbody>
+</table></div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="_table"><table>
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th colspan="5">Desktop</th>
+<th colspan="6">Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+<th>WebView Android</th>
+</tr>
+</thead>
+<tbody><tr>
+<th><code>qualityLimitationReason</code></th>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-no">No</td>
+<td class="bc-supports-yes">67</td>
+<td class="bc-supports-no">No</td>
+<td class="bc-supports-yes">80</td>
+<td class="bc-supports-no">No</td>
+<td class="bc-supports-yes">57</td>
+<td class="bc-supports-no">No</td>
+<td class="bc-supports-yes">13.0</td>
+<td class="bc-supports-yes">80</td>
+</tr></tbody>
+</table></div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2023 MDN contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason</a>
+  </p>
+</div>

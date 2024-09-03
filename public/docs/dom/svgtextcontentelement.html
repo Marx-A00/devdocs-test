@@ -1,0 +1,224 @@
+<header><h1>SVGTextContentElement</h1></header><div class="section-content">
+<p>The <code>SVGTextContentElement</code> interface is implemented by elements that support rendering child text content. It is inherited by various text-related interfaces, such as <a href="svgtextelement"><code>SVGTextElement</code></a>, <a href="svgtspanelement"><code>SVGTSpanElement</code></a>, <a href="svgtrefelement"><code>SVGTRefElement</code></a>, and <a href="svgtextpathelement"><code>SVGTextPathElement</code></a>.</p>
+<svg viewbox="-1 -1 650 88" preserveaspectratio="xMinYMin meet"> <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/EventTarget">  <text x="44" y="16" font-size="10px" fill="#4D4E53" text-anchor="middle"> EventTarget </text> </a>   <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/Node">  <text x="155.5" y="16" font-size="10px" fill="#4D4E53" text-anchor="middle"> Node </text> </a>   <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/Element">  <text x="260.5" y="16" font-size="10px" fill="#4D4E53" text-anchor="middle"> Element </text> </a>   <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/SVGElement">  <text x="368" y="16" font-size="10px" fill="#4D4E53" text-anchor="middle"> SVGElement </text> </a>   <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/SVGGraphicsElement">  <text x="510" y="16" font-size="10px" fill="#4D4E53" text-anchor="middle"> SVGGraphicsElement </text> </a>   <a style="text-decoration: none;" xlink:href="/en-US/docs/Web/API/SVGTextContentElement" aria-current="page">  <text x="498" y="62" font-size="10px" fill="#4D4E53" text-anchor="middle"> SVGTextContentElement </text> </a></svg>
+</div>
+<h2 id="constants">Constants</h2>
+<div class="section-content"><figure class="table-container"><div class="_table"><table class="standard-table"> <tbody> <tr> <td>Constant</td> <td>Value</td> <td>Description</td> </tr> <tr> <td>LENGTHADJUST_UNKNOWN</td> <td>0</td> <td>Some other value.</td> </tr> <tr> <td>LENGTHADJUST_SPACING</td> <td>1</td> <td>The <code>spacing</code> keyword.</td> </tr> <tr> <td>LENGTHADJUST_SPACINGANDGLYPHS</td> <td>2</td> <td>The <code>spacingAndGlyphs</code> keyword.</td> </tr> </tbody> </table></div></figure></div>
+<h2 id="instance_properties">Instance properties</h2>
+<div class="section-content">
+<p><em>This interface also inherits properties from its parent, <a href="svggraphicselement"><code>SVGGraphicsElement</code></a>.</em></p> <dl> <dt id="svgtextcontentelement.textlength">
+<a class="page-not-created"><code>SVGTextContentElement.textLength</code></a> <span class="badge inline readonly">Read only </span>
+</dt> <dd> <p>An <a href="svganimatedlength"><code>SVGAnimatedLength</code></a> reflecting the <code><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/textLength">textLength</a></code> attribute of the given element.</p> </dd> <dt id="svgtextcontentelement.lengthadjust">
+<a class="page-not-created"><code>SVGTextContentElement.lengthAdjust</code></a> <span class="badge inline readonly">Read only </span>
+</dt> <dd> <p>An <a href="svganimatedenumeration"><code>SVGAnimatedEnumeration</code></a> reflecting the <code><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lengthAdjust">lengthAdjust</a></code> attribute of the given element. The numeric type values represent one of the constant values above.</p> </dd> </dl>
+</div>
+<h2 id="instance_methods">Instance methods</h2>
+<div class="section-content">
+<p><em>This interface also inherits methods from its parent, <a href="svggraphicselement"><code>SVGGraphicsElement</code></a>.</em></p> <dl> <dt id="svgtextcontentelement.getnumberofchars"><a class="page-not-created"><code>SVGTextContentElement.getNumberOfChars()</code></a></dt> <dd> <p>Returns a long representing the total number of addressable characters available for rendering within the current element, regardless of whether they will be rendered.</p> </dd> <dt id="svgtextcontentelement.getcomputedtextlength"><a class="page-not-created"><code>SVGTextContentElement.getComputedTextLength()</code></a></dt> <dd> <p>Returns a float representing the computed length for the text within the element.</p> </dd> <dt id="svgtextcontentelement.getsubstringlength"><a class="page-not-created"><code>SVGTextContentElement.getSubStringLength()</code></a></dt> <dd> <p>Returns a float representing the computed length of the formatted text advance distance for a substring of text within the element. Note that this method only accounts for the widths of the glyphs in the substring and any extra spacing inserted by the CSS 'letter-spacing' and 'word-spacing' properties. Visual spacing adjustments made by the 'x' attribute is ignored.</p> </dd> <dt id="svgtextcontentelement.getstartpositionofchar"><a class="page-not-created"><code>SVGTextContentElement.getStartPositionOfChar()</code></a></dt> <dd> <p>Returns a <a href="dompoint"><code>DOMPoint</code></a> representing the position of a typographic character after text layout has been performed.</p> <div class="notecard note" id="sect1"> <p><strong>Note:</strong> In SVG 1.1 this method returned an <a href="svgpoint"><code>SVGPoint</code></a>.</p> </div> </dd> <dt id="svgtextcontentelement.getendpositionofchar"><a class="page-not-created"><code>SVGTextContentElement.getEndPositionOfChar()</code></a></dt> <dd> <p>Returns a <a href="dompoint"><code>DOMPoint</code></a> representing the trailing position of a typographic character after text layout has been performed.</p> <div class="notecard note" id="sect2"> <p><strong>Note:</strong> In SVG 1.1 this method returned an <a href="svgpoint"><code>SVGPoint</code></a>.</p> </div> </dd> <dt id="svgtextcontentelement.getextentofchar"><a class="page-not-created"><code>SVGTextContentElement.getExtentOfChar()</code></a></dt> <dd> <p>Returns a <a href="domrect"><code>DOMRect</code></a> representing the computed tight bounding box of the glyph cell that corresponds to a given typographic character.</p> </dd> <dt id="svgtextcontentelement.getrotationofchar"><a class="page-not-created"><code>SVGTextContentElement.getRotationOfChar()</code></a></dt> <dd> <p>Returns a float representing the rotation of typographic character.</p> </dd> <dt id="svgtextcontentelement.getcharnumatposition"><a class="page-not-created"><code>SVGTextContentElement.getCharNumAtPosition()</code></a></dt> <dd> <p>Returns a long representing the character which caused a text glyph to be rendered at a given position in the coordinate system. Because the relationship between characters and glyphs is not one-to-one, only the first character of the relevant typographic character is returned</p> </dd> <dt id="svgtextcontentelement.selectsubstring">
+<a class="page-not-created"><code>SVGTextContentElement.selectSubString()</code></a> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."> <span class="visually-hidden">Deprecated</span> </abbr>
+</dt> <dd> <p>Selects text within the element.</p> </dd> </dl>
+</div>
+<h2 id="specifications">Specifications</h2>
+<div class="_table"><table class="standard-table">
+<thead><tr><th scope="col">Specification</th></tr></thead>
+<tbody><tr><td><a href="https://svgwg.org/svg2-draft/text.html#InterfaceSVGTextContentElement">Scalable Vector Graphics (SVG) 2 <br><small># InterfaceSVGTextContentElement</small></a></td></tr></tbody>
+</table></div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="_table"><table>
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th colspan="5">Desktop</th>
+<th colspan="6">Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+<th>WebView Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th><code>SVGTextContentElement</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getCharNumAtPosition</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getComputedTextLength</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getEndPositionOfChar</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getExtentOfChar</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getNumberOfChars</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getRotationOfChar</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getStartPositionOfChar</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>getSubStringLength</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>lengthAdjust</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>selectSubString</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+<tr>
+<th><code>textLength</code></th>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">12</td>
+<td class="bc-supports-yes">1.5</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">3</td>
+<td class="bc-supports-yes">18</td>
+<td class="bc-supports-yes">4</td>
+<td class="bc-supports-yes">≤12.1</td>
+<td class="bc-supports-yes">1</td>
+<td class="bc-supports-yes">1.0</td>
+<td class="bc-supports-yes">3</td>
+</tr>
+</tbody>
+</table></div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2023 MDN contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGTextContentElement" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/SVGTextContentElement</a>
+  </p>
+</div>
